@@ -200,8 +200,8 @@ public class SignInFrame {
 				ResultSet resultSign=sign.getResultSet();
 				//ResultSetMetaData metadata=resultSign.getMetaData();
 				//int  numberOfEntries=metadata.getColumnCount();
-				String IDDB = "";
-				String PasswordDB = "";
+				String IDDB =" ";
+				String PasswordDB = " ";
 				while(resultSign.next()) {
 				 IDDB =resultSign.getString("adminID");
 				 PasswordDB=resultSign.getString("adminPassword");
@@ -220,8 +220,8 @@ public class SignInFrame {
 					 error.open();
 					 }
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					Error error =new Error();
+					 error.open();
 				}
 				//si = new Signin(username1, password2);
 				
