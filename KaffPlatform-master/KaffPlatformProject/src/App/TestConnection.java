@@ -16,8 +16,8 @@ import org.eclipse.swt.widgets.List;
 public class TestConnection {
 	String username="root";
 	String password="00001";
-	String URL="jdbc:mysql://localhost:3306/company";
-	String selectQuery="select fname , salary from employee where employee.fname= ?";
+	String URL="jdbc:mysql://localhost:3306/kaff";
+	String selectQuery="select bookTitle , bookLevel,bookType,bookPrice, available, edition from book where bookTitle= ?";
 	String signinQuery="select adminID , adminPassword from signin where adminID= ? and adminPassword=?";
 	PreparedStatement state;
 	PreparedStatement sign;
@@ -69,9 +69,9 @@ return false;
 		result=new ArrayList<BookInformation>();
 		while(resultset.next()) {
 			
-			result.add(new BookInformation(resultset.getString("fname"),resultset.getString("salary")));
-			System.out.println(resultset.getString("fname"));
-			System.out.println(resultset.getString("salary"));
+			result.add(new BookInformation(resultset.getString("bookTitle"),resultset.getInt("bookLevel"),resultset.getString("bookType"),resultset.getDouble("bookPrice"),resultset.getBoolean("available"),resultset.getString("edition")));
+			//System.out.println(resultset.getString("fname"));
+			//System.out.println(resultset.getString("salary"));
 		}
 		resultset.close();
 		return result;
