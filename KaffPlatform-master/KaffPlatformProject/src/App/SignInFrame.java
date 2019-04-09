@@ -189,6 +189,7 @@ public class SignInFrame {
 				String signinQuery="select adminID , adminPassword from kaff.admin where adminID= ? and adminPassword=?";
 				try {
 					Database.openConnection();
+					String selectQuery="select bookTitle , bookLevel,bookType,bookPrice, available, edition from book where bookTitle= ?";
 				
 				PreparedStatement sign=Database.getConnection().prepareStatement(signinQuery);
 				
